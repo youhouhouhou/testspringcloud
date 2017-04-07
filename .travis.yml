@@ -1,10 +1,10 @@
 language: java
 
-env:                    #环境
-  - DB=mysql            #使用mysql
+env:                #环境
+- DB=mysql            #使用mysql
 
 jdk:
-  - jdk8             #jdk使用openjdk
+- oraclejdk8             #jdk使用openjdk
 
 mysql:
   database: es        # 数据库名为es
@@ -12,7 +12,9 @@ mysql:
   password:           # 密码为空
   encoding: utf8      #编码为utf8
 
-
+branches:
+  only:
+  - master
 
 install:               #安装时执行的脚本
   - mvn install -Dmaven.test.skip=true     #mvn安装并跳过测试
