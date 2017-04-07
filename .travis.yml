@@ -8,10 +8,12 @@ branches:
 env: 
   - DB=mysql
 install:
-  - " henghenghahi "
+  - "echo henghenghahi "
   - "mvn install -Dmaven.test.skip=true"
 jdk: 
   - oraclejdk8
+Maven version:
+  - 3.3.9
 language: java
 mysql: 
   database: es
