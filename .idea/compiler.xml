@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="h2webconsole" />
+        <module name="testcustomer" />
+        <module name="testeureka" />
+        <module name="testprovider" />
+        <module name="testturbine" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="h2webconsole" target="1.5" />
+      <module name="testcustomer" target="1.5" />
+      <module name="testeureka" target="1.5" />
+      <module name="testprovider" target="1.5" />
+      <module name="testspringcloud" target="1.5" />
+      <module name="testturbine" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

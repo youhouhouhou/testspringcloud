@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="baseDir">${sys:user.home}/data</Property>
+        <Property name="appName">testConsumer</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="STDOUT" >
+            <PatternLayout charset="utf-8">
+                <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} | %level | %thread | %c | %m%n</pattern>
+            </PatternLayout>
+        </Console>
+
+        <!-- 异步方式 -->
+        <Async name="async-elk-info-log">
+            <AppenderRef ref="elk-info-log"/>
+        </Async>
+
+        <!-- elk记录日志 -->
+        <RollingRandomAccessFile name="elk-info-log" fileName="${baseDir}/info/${appName}-info.log"
+                                 filePattern="${baseDir}/info/${appName}.%d{yyyy-MM-dd-HH}-info.log">
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} | %level | %thread | %c | %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingRandomAccessFile>
+
+
+
+
+        <RollingRandomAccessFile
+                name="RollingRandomAccessFile"
+                fileName="${baseDir}/backend.log"
+                filePattern="${baseDir}/$${date:yyyy-MM}/backend-%d{yyyy-MM-dd}-%i.log"
+                immediateFlush="true" append="true" bufferSize="524288"
+        >
+            <PatternLayout charset="utf-8" >
+                <Pattern >%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="512 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${baseDir}" maxDepth="2">
+                    <IfFileName glob="*/backend-*.log">
+                        <IfLastModified age="1d">
+                            <IfAny>
+                                <IfAccumulatedFileSize exceeds="2 GB"/>
+                            </IfAny>
+                        </IfLastModified>
+                    </IfFileName>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+
+        <Logger name="com.test.springcloud.customer.feign" level="debug" ></Logger>
+        <Root level="${sys:app.log.level:-info}" includeLocation="true">
+            <!--<AppenderRef ref="RollingRandomAccessFile"/>-->
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>

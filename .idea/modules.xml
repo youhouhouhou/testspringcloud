@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/h2webconsole/h2webconsole.iml" filepath="$PROJECT_DIR$/h2webconsole/h2webconsole.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testcustomer/testcustomer.iml" filepath="$PROJECT_DIR$/testcustomer/testcustomer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testeureka/testeureka.iml" filepath="$PROJECT_DIR$/testeureka/testeureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testprovider/testprovider.iml" filepath="$PROJECT_DIR$/testprovider/testprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testspringcloud.iml" filepath="$PROJECT_DIR$/testspringcloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testturbine/testturbine.iml" filepath="$PROJECT_DIR$/testturbine/testturbine.iml" />
+    </modules>
+  </component>
+</project>
